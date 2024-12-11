@@ -7,7 +7,7 @@ import { AuthContext } from "../provider/Authprovider";
 
 const NavBar = () => {
     const {user,Logout}=useContext(AuthContext)
-    console.log(user)
+    
 
   return (
     <div className="navbar bg-base-200 broder-none rounded-b-lg mb-5 mt-1">
@@ -36,7 +36,7 @@ const NavBar = () => {
             <div className="flex justify-center flex-col gap-3 font-semibold text-base">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allcampain">All Campaign</NavLink>
-            <NavLink to="/addnewcampain">Add New Campaign</NavLink>
+            <NavLink to="/addCampaign">Add New Campaign</NavLink>
             <NavLink to="/mycampain">My Campaign</NavLink>
             <NavLink to="/mydonation">My Donations</NavLink>
             </div>
@@ -51,7 +51,7 @@ const NavBar = () => {
         <div className="flex gap-3 items-center font-semibold text-base">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allcampain">All Campaign</NavLink>
-            <NavLink to="/addnewcampain">Add New Campaign</NavLink>
+            <NavLink to="/addCampaign">Add New Campaign</NavLink>
             <NavLink to="/mycampain">My Campaign</NavLink>
             <NavLink to="/mydonation">My Donations</NavLink>
             </div>

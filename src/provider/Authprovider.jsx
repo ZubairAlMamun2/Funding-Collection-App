@@ -41,18 +41,17 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser,updateddata);
   }
 
-//   const ResetUserPassword=(Email)=>{
-//     return sendPasswordResetEmail(auth,Email);
-//   }
+  const ResetUserPassword=(Email)=>{
+    return sendPasswordResetEmail(auth,Email);
+  }
 
-//   const SignInWithGoogle=(auth,provider)=>{
-//     return signInWithPopup(auth, provider)
-//   }
+  const SignInWithGoogle=(auth,provider)=>{
+    return signInWithPopup(auth, provider)
+  }
 
   
 
-  const UserInfo = { user, setUser, createNewUser, Logout, Login, loading,SetresetEmail,resetEmail,UpdateUserProfile };
-//   const UserInfo = { user,createNewUser,setUser,Logout };
+  const UserInfo = { user, setUser, createNewUser, Logout, Login, loading,SetresetEmail,resetEmail,UpdateUserProfile,SignInWithGoogle,ResetUserPassword };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
