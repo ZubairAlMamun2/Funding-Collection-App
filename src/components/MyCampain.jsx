@@ -1,15 +1,56 @@
-import React from 'react'
-import NavBar from './Navbar'
-import Footer from './Footer'
+import React, { useContext, useState } from "react";
+import NavBar from "./Navbar";
+import Footer from "./Footer";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../provider/Authprovider";
 
 const MyCampain = () => {
-  return (
-    <div className='w-11/12 mx-auto'>
-        <NavBar />
-        MyCampain
-        <Footer />
-    </div>
-  )
+  const loadeddata = useLoaderData();
+  const { user } = useContext(AuthContext);
+  const filtereddata = loadeddata.filter((value) => value.email == user.email);
+  const [data, setdata] = useState(filtereddata);
+  // console.log(loadeddata,filtereddata)
+  const handledelete=(_id)=>{
+    console.log(_id)
+    fetch(`http://localhost:5000/campain/${_id}`,{
+        method: 'DELETE'
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+        console.log(res)
+        if(res.deletedCount>0){
+            alert("user deleted successful")
+            const filtereddata=data.filter(user=>user._id !== _id)
+            setdata(filtereddata)
+        }
+    })
 }
+  return (
+    <div className="w-11/12 mx-auto">
+      <NavBar />
+      <table className="w-full">
+        <tbody className="border">
+          <tr>
+            <th className="border m-2 p-2">Serial</th>
+            <th className="border m-2 p-2">Title</th>
+          </tr>
+          {data.map((item, i) => (
+            <tr className="border m-2 p-2" key={i++}>
+              <td className="border m-2 p-2">{i}</td>
+              <td className="border m-2 p-2">{item.title}</td>
+              <button onClick={()=>{
+                handledelete(item._id)
+            }}> delete</button>
+              <Link to={`/campain/${item._id}`} className="border m-2">
+                See more
+              </Link>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <Footer />
+    </div>
+  );
+};
 
-export default MyCampain
+export default MyCampain;

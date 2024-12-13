@@ -11,6 +11,7 @@ import Register from "../components/Register";
 import AuthLayouts from "../components/AuthLayout";
 import ErrorPage from "../components/Error";
 import PrivetRoute from "./PrivetRoute";
+import Details from "../components/Details";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     {
       path: "/allcampain",
       element: <AllCampain />,
+      loader:()=>fetch("http://localhost:5000/allcampain")
     },
     {
       path: "/addCampaign",
@@ -28,6 +30,12 @@ const router = createBrowserRouter([
     {
       path: "/mycampain",
       element: <PrivetRoute><MyCampain /></PrivetRoute>,
+      loader:()=>fetch("http://localhost:5000/mycampain")
+    },
+    {
+      path: "/campain/:id",
+      element: <PrivetRoute><Details /></PrivetRoute>,
+      loader:({params})=>fetch(`http://localhost:5000/campain/${params.id}`)
     },
     {
       path: "/mydonation",

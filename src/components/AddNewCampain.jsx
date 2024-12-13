@@ -21,6 +21,7 @@ const AddNewCampain = () => {
     const date = form.get("date");
     const email = user.email;
     const name = user.displayName;
+    // const donatedby='';
 
     // console.log(typeof(amount))
 
@@ -32,7 +33,7 @@ const AddNewCampain = () => {
       name,
       amount,
       description,
-      date,
+      date
     };
 
     fetch(`http://localhost:5000/addnewcampaign`, {

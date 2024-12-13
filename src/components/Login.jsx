@@ -50,7 +50,7 @@ const Login = () => {
         setError(errorCode, errorMessage);
         e.target.reset();
       });
-    console.log({ email, password });
+    // console.log({ email, password });
     //   createUserWithEmailAndPassword(auth,email,password).
     //   then(res=>console.log(res.user) ).
     //   catch(err=>console.log(err))
