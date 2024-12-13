@@ -12,6 +12,7 @@ import AuthLayouts from "../components/AuthLayout";
 import ErrorPage from "../components/Error";
 import PrivetRoute from "./PrivetRoute";
 import Details from "../components/Details";
+import Update from "../components/Update";
 
 const router = createBrowserRouter([
     {
@@ -38,9 +39,15 @@ const router = createBrowserRouter([
       loader:({params})=>fetch(`http://localhost:5000/campain/${params.id}`)
     },
     {
+      path: "/update/:id",
+      element: <Update />,
+      loader:({params})=>fetch(`http://localhost:5000/campain/${params.id}`)
+    },
+    {
       path: "/mydonation",
       element: <PrivetRoute><MyDonation /></PrivetRoute>,
-    },{
+    },
+    {
       path: "/auth",
       element:<AuthLayouts />,
       children:[

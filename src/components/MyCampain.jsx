@@ -10,40 +10,52 @@ const MyCampain = () => {
   const filtereddata = loadeddata.filter((value) => value.email == user.email);
   const [data, setdata] = useState(filtereddata);
   // console.log(loadeddata,filtereddata)
-  const handledelete=(_id)=>{
-    console.log(_id)
-    fetch(`http://localhost:5000/campain/${_id}`,{
-        method: 'DELETE'
+  const handledelete = (_id) => {
+    console.log(_id);
+    fetch(`http://localhost:5000/campain/${_id}`, {
+      method: "DELETE",
     })
-    .then(res=>res.json())
-    .then((res)=>{
-        console.log(res)
-        if(res.deletedCount>0){
-            alert("user deleted successful")
-            const filtereddata=data.filter(user=>user._id !== _id)
-            setdata(filtereddata)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if (res.deletedCount > 0) {
+          alert("user deleted successful");
+          const filtereddata = data.filter((user) => user._id !== _id);
+          setdata(filtereddata);
         }
-    })
-}
+      });
+  };
   return (
     <div className="w-11/12 mx-auto">
       <NavBar />
       <table className="w-full">
         <tbody className="border">
           <tr>
-            <th className="border m-2 p-2">Serial</th>
             <th className="border m-2 p-2">Title</th>
+            <th className="border m-2 p-2">Type</th>
+            <th className="border m-2 p-2">Amount</th>
+            <th className="border m-2 p-2">Date</th>
           </tr>
           {data.map((item, i) => (
             <tr className="border m-2 p-2" key={i++}>
-              <td className="border m-2 p-2">{i}</td>
               <td className="border m-2 p-2">{item.title}</td>
-              <button onClick={()=>{
-                handledelete(item._id)
-            }}> delete</button>
-              <Link to={`/campain/${item._id}`} className="border m-2">
-                See more
-              </Link>
+              <td className="border m-2 p-2">{item.type}</td>
+              <td className="border m-2 p-2">{item.amount}</td>
+              <td className="border m-2 p-2">{item.date}</td>
+              <td className="border m-2 p-2">
+                <button
+                  className="btn m-1"
+                  onClick={() => {
+                    handledelete(item._id);
+                  }}
+                >
+                  {" "}
+                  delete
+                </button>
+                <Link to={`/update/${item._id}`} className="btn m-1">
+                  Update
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>

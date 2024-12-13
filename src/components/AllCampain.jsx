@@ -21,9 +21,9 @@ const AllCampain = () => {
             <tr className="border m-2 p-2" key={i++}>
               <td className="border m-2 p-2">{i}</td>
               <td className="border m-2 p-2">{item.title}</td>
-              <Link to={`/campain/${item._id}`} className="border m-2">
+              <td className="border m-2 p-2"><Link to={`/campain/${item._id}`} className="btn">
                 See more
-              </Link>
+              </Link></td>
             </tr>
           ))}
         </tbody>

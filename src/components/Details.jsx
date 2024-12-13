@@ -8,7 +8,7 @@ const Details = () => {
   const loadeddata = useLoaderData();
   const { user } = useContext(AuthContext);
 
-  console.log(loadeddata, user.email);
+//   console.log(loadeddata, user.email);
   return (
     <div className="w-11/12 mx-auto">
       <NavBar />
