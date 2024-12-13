@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     },
     {
       path: "/update/:id",
-      element: <Update />,
+      element:<PrivetRoute><Update /></PrivetRoute> ,
       loader:({params})=>fetch(`http://localhost:5000/campain/${params.id}`)
     },
     {
