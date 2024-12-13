@@ -11,6 +11,7 @@ const AllCampain = () => {
   return (
     <div className="w-11/12 mx-auto">
       <NavBar />
+      <div className=" min-h-[60vh]">
       <table className="w-full">
         <tbody className="border">
           <tr>
@@ -28,6 +29,7 @@ const AllCampain = () => {
           ))}
         </tbody>
       </table>
+      </div>
       <Footer />
     </div>
   );

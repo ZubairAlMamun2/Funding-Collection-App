@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import NavBar from './Navbar'
+import Footer from './Footer'
 
 const AuthLayouts = () => {
   return (
@@ -11,6 +12,7 @@ const AuthLayouts = () => {
         <main>
             <Outlet />
         </main>
+        <Footer />
     </div>
   )
 }

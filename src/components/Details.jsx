@@ -39,7 +39,7 @@ const Details = () => {
     <div className="w-11/12 mx-auto">
       <NavBar />
       <div className="flex justify-center">
-        <div className="card bg-base-100 w-96 shadow-xl">
+        <div className="card bg-base-300 w-96 shadow-xl">
           <figure>
             <img
               src={campaindata.photo}
