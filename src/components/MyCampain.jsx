@@ -51,7 +51,7 @@ const MyCampain = () => {
               <td className="border m-2 p-2">{item.date}</td>
               <td className="border m-2 p-2">
                 <button
-                  className="btn m-1"
+                  className="btn btn-primary m-1"
                   onClick={() => {
                     handledelete(item._id);
                   }}
@@ -59,7 +59,7 @@ const MyCampain = () => {
                   {" "}
                   delete
                 </button>
-                <Link to={`/update/${item._id}`} className="btn m-1">
+                <Link to={`/update/${item._id}`} className="btn btn-primary m-1">
                   Update
                 </Link>
               </td>
