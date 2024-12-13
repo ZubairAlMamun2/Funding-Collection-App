@@ -3,6 +3,7 @@ import NavBar from "./Navbar";
 import Footer from "./Footer";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/Authprovider";
+import Swal from "sweetalert2";
 
 const MyCampain = () => {
   const loadeddata = useLoaderData();
@@ -19,7 +20,12 @@ const MyCampain = () => {
       .then((res) => {
         console.log(res);
         if (res.deletedCount > 0) {
-          alert("user deleted successful");
+          Swal.fire({
+            title: 'Success!',
+            text: 'User added succesfully',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
           const filtereddata = data.filter((user) => user._id !== _id);
           setdata(filtereddata);
         }

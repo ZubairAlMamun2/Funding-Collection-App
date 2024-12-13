@@ -10,7 +10,17 @@ const Details = () => {
   const { user } = useContext(AuthContext);
   const email= user.email;
   const DonatedData={campaindata,email}
-    const handleclick=()=>{
+
+//   console.log(DonatedData);
+  const date=campaindata.date
+ const pickedDate =Date.parse(date);
+ const todaysDate = new Date();
+    todaysDate.setHours(0, 0, 0, 0);
+  const dateDifference = (pickedDate-Number(todaysDate));
+  console.log(dateDifference)
+
+  const handleclick=()=>{
+    if(dateDifference>0){
         fetch(`http://localhost:5000/donatedcampaign`, {
             method: "POST",
             headers: {
@@ -24,31 +34,43 @@ const Details = () => {
               if(data.acknowledged){
                 Swal.fire({
                   title: 'Success!',
-                  text: 'User added succesfully',
+                  text: 'Campain added succesfully',
                   icon: 'success',
                   confirmButtonText: 'Cool'
                 })
               }
             });
     }
- 
-
-  console.log(DonatedData);
-
+    else{
+        Swal.fire({
+            title: 'Error!',
+            text: 'Campain is not Running',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
+    }
+}
+//   console.log(date)
+//   console.log(pickedDate)
   return (
     <div className="w-11/12 mx-auto">
       <NavBar />
       <div className="flex justify-center">
-        <div className="card bg-base-300 w-96 shadow-xl">
-          <figure>
-            <img
+        <div className="card bg-base-300 min-w-96 shadow-xl">
+          <figure className="p-5 w-full">
+            <img className="h-56 border rounded-lg w-full"
               src={campaindata.photo}
               alt="CAmpain"
             />
           </figure>
           <div className="card-body">
             <h2 className="card-title">{campaindata.title}</h2>
-            <p>{campaindata.description}</p>
+            <p>Desc: {campaindata.description}</p>
+            <p>Type: {campaindata.type}</p>
+            <p>Amount: {campaindata.amount}</p>
+            <p>Date: {campaindata.date}</p>
+            <p>Added By: {campaindata.name}</p>
+            <p>User Email: {campaindata.email}</p>
             <div className="card-actions justify-end">
               <button className="btn btn-primary" onClick={()=>{
                     handleclick()

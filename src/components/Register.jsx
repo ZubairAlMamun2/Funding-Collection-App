@@ -7,6 +7,7 @@ import { FaGoogle } from "react-icons/fa";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import { AuthContext } from "../provider/Authprovider";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const provider = new GoogleAuthProvider();
@@ -62,6 +63,12 @@ const Register = () => {
         setUser(res.user);
         setError("");
         navigate(location?.state ? location.state : "/");
+        Swal.fire({
+          title: 'Success!',
+          text: 'User Registred succesfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
       })
       .catch((err) => {
         // console.log(err);

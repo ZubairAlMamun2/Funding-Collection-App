@@ -11,6 +11,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../provider/Authprovider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const provider = new GoogleAuthProvider();
@@ -42,6 +43,12 @@ const Login = () => {
         setUser(result.user);
         setError("");
         navigate(location?.state ? location.state : "/");
+        Swal.fire({
+          title: 'Success!',
+          text: 'User added succesfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -62,6 +69,12 @@ const Login = () => {
         setUser(res.user);
         setError("");
         navigate(location?.state ? location.state : "/");
+        Swal.fire({
+          title: 'Success!',
+          text: 'User Loged in succesfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
       })
       .catch((err) => {
         // console.log(err);

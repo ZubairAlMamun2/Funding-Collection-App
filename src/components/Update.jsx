@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "./Navbar";
 import Footer from "./Footer";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
   const data = useLoaderData();
@@ -38,7 +39,12 @@ const Update = () => {
       .then((res) => {
         console.log(res);
         if (res.modifiedCount > 0) {
-          alert("user updated successful");
+            Swal.fire({
+                title: 'Success!',
+                text: 'User added succesfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
         }
       });
   };
