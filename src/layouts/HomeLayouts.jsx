@@ -3,6 +3,7 @@ import NavBar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Banner from '../components/Banner'
 import RunningCampaign from '../components/RunningCampaign'
+import ExtraSection from '../components/ExtraSection'
 
 const HomeLayouts = () => {
   return (
@@ -10,6 +11,7 @@ const HomeLayouts = () => {
         <NavBar />
         <Banner />
         <RunningCampaign />
+        <ExtraSection />
         <Footer />
     </div>
   )
