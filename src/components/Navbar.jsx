@@ -42,13 +42,13 @@ const NavBar = () => {
             </div>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">
+        <a className="btn -ml-5 md:-ml-0  btn-ghost text-xl">
         Crowdcube
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-        <div className="flex gap-3 items-center font-semibold text-base">
+        <div className="flex  gap-3 items-center font-semibold text-base">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allcampain">All Campaign</NavLink>
             <NavLink to="/addCampaign">Add New Campaign</NavLink>
