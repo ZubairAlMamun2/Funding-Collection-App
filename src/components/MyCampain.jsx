@@ -9,16 +9,27 @@ const MyCampain = () => {
   const loadeddata = useLoaderData();
   const { user } = useContext(AuthContext);
   const filtereddata = loadeddata.filter((value) => value.email == user.email);
-  const [data, setdata] = useState(filtereddata);
+  const [data, setData] = useState(filtereddata);
+
+  const handlesort=()=>{
+   
+        const newarr = data.sort((a, b) => a.amount - b.amount);
+          setData(newarr);
+          console.log(data)
+     
+       
+  }
+  
+  
   // console.log(loadeddata,filtereddata)
   const handledelete = (_id) => {
-    console.log(_id);
+    // console.log(_id);
     fetch(`http://localhost:5000/campain/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.deletedCount > 0) {
           Swal.fire({
             title: 'Success!',
@@ -27,14 +38,20 @@ const MyCampain = () => {
             confirmButtonText: 'Cool'
           })
           const filtereddata = data.filter((user) => user._id !== _id);
-          setdata(filtereddata);
+          setData(filtereddata);
         }
       });
   };
+
+
+  // console.log(data) 
+ 
   return (
     <div className="w-11/12 mx-auto">
       <NavBar />
       <div className=" min-h-[60vh]">
+        <div className="flex justify-center p-2 m-2"><button className="btn btn-primary" onClick={
+          handlesort}> sort</button></div>
       <table className="w-100px md:w-full ">
         <tbody className="border">
           <tr>
