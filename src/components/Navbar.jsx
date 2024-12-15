@@ -8,7 +8,7 @@ import { AuthContext } from "../provider/Authprovider";
 const NavBar = () => {
     const {user,Logout}=useContext(AuthContext)
     
-  // console.log(user)
+  console.log(user)
   return (
     <div className="navbar bg-base-200 broder-none rounded-b-lg mb-5 mt-1">
       <div className="navbar-start">
@@ -58,7 +58,10 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <span className="mr-2">{user&&user.photoURL?<span className="flex items-center" ><img className={`w-10 h-10 border rounded-full hover:${<p>{user?.displayName}</p>} `} src={user.photoURL} alt="" /></span>:""}</span>
+        {
+          user?.email &&
+          <div> <img title={user.displayName} className="w-10 h-10 border rounded-full" src={user.photoURL} /></div>
+        }
         {user?<button onClick={Logout} className='btn btn-primary text-base-100 px-3 py-1'>Log Out</button>:<div ><Link to="/auth/login" className='btn btn-primary text-base-100 px-3 mr-2 py-1 '>Login</Link><Link to="/auth/register" className='btn btn-primary text-base-100 px-3 py-1 '>Register</Link></div>}
       </div>
     </div>
