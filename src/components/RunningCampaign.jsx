@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTypewriter } from 'react-simple-typewriter'
 
 const RunningCampaign = () => {
     const[data,setData]=useState('');
@@ -22,10 +23,14 @@ const newarr=[];
 
 //   const filteredDAta=data.filter((item)=> (Date.parse(item.date)>=Number(todaysDate)));
 //   console.log(newarr)
+const [text] = useTypewriter({
+    words: ['This is Running Campaign Section!'],
+    loop: 0
+  })
 
   
   return <div>
-    <h2 className="text-2xl font-semibold text-center mt-10">Running Campaign </h2>
+    <h2 className="text-2xl font-semibold text-center mt-10"><span>{text}</span></h2>
         <div className="grid grid-cols-6 gap-5 my-5">
         {newarr.map((item,i)=>{
           return(<div  key={i} className="card bg-base-300  col-span-6 md:col-span-3 lg:col-span-2 shadow-xl">
