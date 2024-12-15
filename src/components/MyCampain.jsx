@@ -12,12 +12,9 @@ const MyCampain = () => {
   const [data, setData] = useState(filtereddata);
 
   const handlesort=()=>{
-   
-        const newarr = data.sort((a, b) => a.amount - b.amount);
+        const newarr = [...data].sort((a, b) => a.amount - b.amount);
           setData(newarr);
-          console.log(data)
-     
-       
+          console.log(data)   
   }
   
   
