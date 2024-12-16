@@ -1,12 +1,14 @@
 import React from "react";
 import NavBar from "./Navbar";
 import Footer from "./Footer";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+
 
 const Update = () => {
   const data = useLoaderData();
   console.log(data);
+  const navigate = useNavigate();
 
   const handleupdate = (e) => {
     e.preventDefault();
@@ -28,7 +30,7 @@ const Update = () => {
       };
 
     console.log(formData);
-    fetch(`http://localhost:5000/campain/${data._id}`, {
+    fetch(`https://crowdcube-server-black.vercel.app/campain/${data._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -45,6 +47,7 @@ const Update = () => {
                 icon: 'success',
                 confirmButtonText: 'Cool'
               })
+              navigate(location?.state ? location.state : "/mycampain");
         }
       });
   };

@@ -14,19 +14,28 @@ const MyCampain = () => {
   const handlesort=()=>{
         const newarr = [...data].sort((a, b) => a.amount - b.amount);
           setData(newarr);
-          console.log(data)   
+          // console.log(data)   
   }
   
   
   // console.log(loadeddata,filtereddata)
   const handledelete = (_id) => {
-    // console.log(_id);
-    fetch(`http://localhost:5000/campain/${_id}`, {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+    fetch(`https://crowdcube-server-black.vercel.app/campain/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
         if (res.deletedCount > 0) {
           Swal.fire({
             title: 'Success!',
@@ -38,6 +47,8 @@ const MyCampain = () => {
           setData(filtereddata);
         }
       });
+      }
+    });
   };
 
 

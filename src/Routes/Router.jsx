@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     {
       path: "/allcampain",
       element: <AllCampain />,
-      loader:()=>fetch("http://localhost:5000/allcampain")
+      loader:()=>fetch("https://crowdcube-server-black.vercel.app/allcampain")
     },
     {
       path: "/addCampaign",
@@ -31,22 +31,22 @@ const router = createBrowserRouter([
     {
       path: "/mycampain",
       element: <PrivetRoute><MyCampain /></PrivetRoute>,
-      loader:()=>fetch("http://localhost:5000/mycampain")
+      loader:()=>fetch("https://crowdcube-server-black.vercel.app/mycampain")
     },
     {
       path: "/campain/:id",
       element: <PrivetRoute><Details /></PrivetRoute>,
-      loader:({params})=>fetch(`http://localhost:5000/campain/${params.id}`)
+      loader:({params})=>fetch(`https://crowdcube-server-black.vercel.app/campain/${params.id}`)
     },
     {
       path: "/update/:id",
       element:<PrivetRoute><Update /></PrivetRoute> ,
-      loader:({params})=>fetch(`http://localhost:5000/campain/${params.id}`)
+      loader:({params})=>fetch(`https://crowdcube-server-black.vercel.app/campain/${params.id}`)
     },
     {
       path: "/mydonation",
       element: <PrivetRoute><MyDonation /></PrivetRoute>,
-      loader:()=>fetch("http://localhost:5000/mydonation")
+      loader:()=>fetch("https://crowdcube-server-black.vercel.app/mydonation")
     },
     {
       path: "/auth",

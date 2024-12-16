@@ -1,8 +1,18 @@
-# React + Vite
+# Winter Cloth Donation (https://crowdcube-1971.netlify.app/)
+ 
+## Purpose 
+- A crowdfunding website is a platform where people can raise money for dierent projects, ideas, or causes by inviting others to contribute nancially. These projects can include personal need(like medical expenses), creative ideas (like making a lm or app), and startups (like launching a new product).
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##  NPM packages
 
-Currently, two official plugins are available:
+- react-awesome-reveal
+- react-awesome-reveal
+- etc..
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## key features
+- In this project we use firebase to authentacet user
+- Hosting the project in Netlify
+- In this project Only donate LogedIn users
+- We also use useContext Api
+- Data storage in mongodb
+- etc..

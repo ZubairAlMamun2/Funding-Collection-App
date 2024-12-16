@@ -36,7 +36,7 @@ const AddNewCampain = () => {
       date
     };
 
-    fetch(`http://localhost:5000/addnewcampaign`, {
+    fetch(`https://crowdcube-server-black.vercel.app/addnewcampaign`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

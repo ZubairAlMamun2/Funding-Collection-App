@@ -5,7 +5,7 @@ import { useTypewriter } from 'react-simple-typewriter'
 const RunningCampaign = () => {
     const[data,setData]=useState('');
   useEffect(() => {
-    fetch("http://localhost:5000/allcampain")
+    fetch("https://crowdcube-server-black.vercel.app/allcampain")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

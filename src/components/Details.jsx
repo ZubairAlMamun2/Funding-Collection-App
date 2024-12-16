@@ -21,7 +21,7 @@ const Details = () => {
 
   const handleclick=()=>{
     if(dateDifference>0){
-        fetch(`http://localhost:5000/donatedcampaign`, {
+        fetch(`https://crowdcube-server-black.vercel.app/donatedcampaign`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
