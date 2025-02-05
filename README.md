@@ -26,7 +26,6 @@ This is a crowdfunding app where users can create and manage fundraising campaig
 - `react`
 - `react-sweetalert2`
 - `react-icons`
-- `axios`
 - `firebase`
 - `express`
 - `mongoose`
